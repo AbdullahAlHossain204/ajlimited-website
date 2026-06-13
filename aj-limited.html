@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A.J Limited - Connecting Businesses. Creating Opportunities. International trade, import-export, product sourcing and distribution.">
+<meta name="keywords" content="import export, international trade, product sourcing, distribution, business consulting, A.J Limited">
+<title>A.J Limited | Connecting Businesses. Creating Opportunities.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-mid: #112240;
+  --blue: #1a4fa0;
+  --blue-bright: #2563eb;
+  --blue-light: #3b82f6;
+  --blue-pale: #dbeafe;
+  --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --white: #ffffff;
+  --off-white: #f8fafc;
+  --gray-50: #f1f5f9;
+  --gray-100: #e2e8f0;
+  --gray-200: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-600: #475569;
+  --gray-800: #1e293b;
+  --dark: #0f172a;
+  --glass: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.12);
+  --font: 'Inter', sans-serif;
+  --serif: 'Playfair Display', serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+  --shadow-blue: 0 8px 32px rgba(37,99,235,0.25);
+}
+
+[data-theme="dark"] {
+  --navy: #0a0f1e;
+  --navy-mid: #0d1831;
+  --off-white: #0f1629;
+  --gray-50: #111827;
+  --gray-100: #1e2a3a;
+  --gray-200: #2d3d52;
+  --gray-600: #94a3b8;
+  --gray-800: #e2e8f0;
+  --dark: #f0f6ff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font);
+  background: var(--off-white);
+  color: var(--gray-800);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ─── LOADER ─── */
+#loader {
+  position: fixed; inset: 0;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-logo {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+.loader-logo span { color: var(--gold); }
+.loader-bar {
+  width: 200px; height: 2px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loader-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-light), var(--gold));
+  border-radius: 2px;
+  animation: loadFill 1.8s ease-in-out forwards;
+}
+@keyframes loadFill { from { width: 0 } to { width: 100% } }
+
+/* ─── PAGES ─── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ─── NAV ─── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 2rem;
+  transition: var(--transition);
+}
+#navbar.scrolled {
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+  display: flex; align-items: center; gap: 0.5rem;
+  text-decoration: none;
+}
+.nav-logo-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+.nav-logo span { color: var(--gold); }
+.nav-links {
+  display: flex; align-items: center; gap: 0.25rem;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 0.875rem;
+  border-radius: 6px;
+  transition: var(--transition);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--white); background: var(--glass); }
+.nav-cta {
+  background: var(--blue-bright) !important;
+  color: var(--white) !important;
+  padding: 0.5rem 1.25rem !important;
+  font-weight: 600 !important;
+}
+.nav-cta:hover { background: var(--blue-light) !important; transform: translateY(-1px); box-shadow: var(--shadow-blue); }
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+.theme-btn {
+  width: 36px; height: 36px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+.theme-btn:hover { background: rgba(255,255,255,0.15); }
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: var(--transition);
+}
+.mobile-menu {
+  display: none;
+  position: fixed; top: 72px; left: 0; right: 0;
+  background: rgba(10,22,40,0.98);
+  backdrop-filter: blur(20px);
+  padding: 1rem 2rem 2rem;
+  z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+}
+.mobile-menu a:last-child { border: none; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  position: relative;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(26,79,160,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 85% 70%, rgba(201,168,76,0.15) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 75%);
+}
+.hero-orbs {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px);
+  animation: floatOrb 8s ease-in-out infinite;
+}
+.orb-1 { width: 500px; height: 500px; background: rgba(37,99,235,0.18); top: -100px; right: -100px; }
+.orb-2 { width: 300px; height: 300px; background: rgba(201,168,76,0.12); bottom: 50px; left: 10%; animation-delay: -3s; }
+.orb-3 { width: 200px; height: 200px; background: rgba(37,99,235,0.12); top: 40%; left: 5%; animation-delay: -6s; }
+@keyframes floatOrb {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(20px,-30px) scale(1.05); }
+  66% { transform: translate(-15px,20px) scale(0.95); }
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto;
+  padding: 8rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(37,99,235,0.15);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: var(--blue-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.375rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--blue-light);
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero-title .accent { color: var(--gold); }
+.hero-tagline {
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--gold);
+  padding-left: 1rem;
+}
+.hero-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  max-width: 520px;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: var(--blue-bright);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+}
+.btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,99,235,0.5); }
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover { background: var(--glass); border-color: rgba(255,255,255,0.6); transform: translateY(-2px); }
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+.hero-visual {
+  position: relative;
+}
+.hero-card-stack {
+  position: relative;
+  height: 420px;
+}
+.h-card {
+  position: absolute;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  color: var(--white);
+  transition: var(--transition);
+}
+.h-card-main {
+  width: 100%;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 2rem;
+}
+.h-card-stat {
+  width: 160px;
+  padding: 1.25rem;
+}
+.h-card-stat-1 { top: 10px; left: -20px; animation: floatCard 4s ease-in-out infinite; }
+.h-card-stat-2 { bottom: 20px; right: -20px; animation: floatCard 4s ease-in-out infinite 2s; }
+.h-card-stat-3 { top: 30%; right: -30px; animation: floatCard 4s ease-in-out infinite 1s; }
+@keyframes floatCard {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}
+}
+.stat-num { font-size: 1.75rem; font-weight: 700; color: var(--gold); font-family: var(--serif); }
+.stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
+.globe-ring {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(59,130,246,0.3);
+  margin: 0 auto 1.5rem;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  animation: rotateSlow 20s linear infinite;
+}
+.globe-ring::before {
+  content: '';
+  position: absolute; inset: 16px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201,168,76,0.3);
+}
+.globe-inner {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(37,99,235,0.4), rgba(10,22,40,0.8));
+  border: 1px solid rgba(59,130,246,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem;
+  animation: rotateSlow 20s linear infinite reverse;
+}
+@keyframes rotateSlow { to { transform: rotate(360deg); } }
+.globe-dot {
+  position: absolute;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--gold);
+}
+.globe-dot:nth-child(1) { top: 10%; left: 50%; }
+.globe-dot:nth-child(2) { bottom: 15%; left: 20%; }
+.globe-dot:nth-child(3) { top: 40%; right: 5%; }
+.h-card-main-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--white); text-align: center; margin-bottom: 0.5rem; }
+.h-card-main-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-align: center; }
+
+/* ─── SECTIONS SHARED ─── */
+.section { padding: 6rem 2rem; }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-dark { background: var(--navy); }
+.section-mid { background: var(--navy-mid); }
+.section-light { background: var(--gray-50); }
+
+.section-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 2px;
+  background: var(--blue-bright);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.section-title-white { color: var(--white); }
+.section-title-dark { color: var(--navy); }
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  line-height: 1.8;
+}
+.section-subtitle-white { color: rgba(255,255,255,0.6); }
+.text-center { text-align: center; }
+.text-center .section-eyebrow { justify-content: center; }
+.text-center .section-subtitle { margin: 0 auto; }
+
+/* ─── INTRO ─── */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding: 5rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.intro-visual {
+  position: relative;
+}
+.intro-img-box {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+  border-radius: 20px;
+  height: 380px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.intro-img-box::before {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 200px; height: 200px;
+  background: rgba(201,168,76,0.15);
+  border-radius: 50%;
+}
+.intro-badge {
+  position: absolute;
+  bottom: -20px; left: 30px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  display: flex; align-items: center; gap: 1rem;
+}
+.badge-icon { font-size: 2rem; }
+.badge-text strong { display: block; font-size: 1.25rem; font-weight: 700; color: var(--navy); }
+.badge-text span { font-size: 0.8rem; color: var(--gray-600); }
+.intro-text { padding-left: 1rem; }
+.check-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.875rem; }
+.check-list li {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--gray-600);
+}
+.check-list li::before {
+  content: '✓';
+  width: 22px; height: 22px;
+  background: var(--blue-pale);
+  color: var(--blue-bright);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── WHY CHOOSE ─── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.why-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition);
+  cursor: default;
+}
+.why-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.why-icon {
+  width: 52px; height: 52px;
+  background: rgba(37,99,235,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.why-card h3 { color: var(--white); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.625rem; }
+.why-card p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; }
+
+/* ─── STATS ─── */
+.stats-section {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.stat-card {
+  text-align: center;
+  padding: 2rem;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.stat-card:last-child { border-right: none; }
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-card p { color: rgba(255,255,255,0.65); font-size: 0.9rem; font-weight: 500; }
+
+/* ─── SERVICES ─── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-bright), var(--blue-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--blue-pale); }
+.service-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--blue-pale), #bfdbfe);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.625rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+.service-card:hover .service-icon { background: linear-gradient(135deg, var(--blue-bright), var(--blue-light)); transform: scale(1.1) rotate(3deg); }
+.service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; transition: var(--transition); }
+.service-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
+.service-arrow {
+  display: inline-flex; align-items: center; gap: 0.375rem;
+  color: var(--blue-bright); font-size: 0.85rem; font-weight: 600;
+  margin-top: 1.25rem;
+  opacity: 0; transform: translateX(-8px);
+  transition: var(--transition);
+}
+.service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+/* ─── INDUSTRIES ─── */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.industry-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  transition: var(--transition);
+  cursor: default;
+}
+.industry-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); border-color: rgba(59,130,246,0.4); }
+.industry-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+.industry-card p { color: rgba(255,255,255,0.7); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; }
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.testimonial-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+.testimonial-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+.testimonial-text::before { content: '"'; font-family: var(--serif); font-size: 2rem; color: var(--blue-pale); line-height: 0; vertical-align: -0.5rem; margin-right: 0.25rem; }
+.testimonial-author { display: flex; align-items: center; gap: 0.875rem; }
+.author-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-bright));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-weight: 700; font-size: 0.9rem;
+}
+.author-info strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+.author-info span { font-size: 0.8rem; color: var(--gray-400); }
+
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E") repeat;
+}
+.cta-banner-content { position: relative; max-width: 700px; margin: 0 auto; }
+.cta-banner h2 { font-family: var(--serif); font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: var(--white); margin-bottom: 1rem; }
+.cta-banner p { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 2rem; }
+
+/* ─── ABOUT PAGE ─── */
+.about-hero {
+  background: var(--navy);
+  padding: 10rem 2rem 6rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.about-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(26,79,160,0.3) 0%, transparent 70%);
+}
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+.mv-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: 2rem; right: 2rem;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+}
+.mv-card.mission::before { background: linear-gradient(90deg, var(--blue-bright), var(--blue-light)); }
+.mv-card.vision::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.mv-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+.mv-card.mission .mv-label { color: var(--blue-light); }
+.mv-card.vision .mv-label { color: var(--gold); }
+.mv-card p { color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.8; }
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.value-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: var(--transition);
+}
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.value-icon { font-size: 2.25rem; margin-bottom: 1rem; }
+.value-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.value-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; }
+.timeline { position: relative; margin-top: 3.5rem; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--blue-bright), var(--blue-pale));
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 2.5rem 2.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px; top: 6px;
+  width: 14px; height: 14px;
+  background: var(--blue-bright);
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--blue-bright);
+}
+.timeline-year { font-size: 0.8rem; font-weight: 700; color: var(--blue-bright); letter-spacing: 0.08em; margin-bottom: 0.375rem; }
+.timeline-item h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.375rem; }
+.timeline-item p { font-size: 0.9rem; color: var(--gray-600); }
+
+/* ─── SERVICES PAGE ─── */
+.services-page-hero {
+  background: var(--navy);
+  padding: 10rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.services-page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(26,79,160,0.4) 0%, transparent 60%);
+}
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.service-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-100);
+  transition: var(--transition);
+}
+.service-row:hover { transform: translateX(6px); box-shadow: var(--shadow-md); border-color: var(--blue-pale); }
+.service-row-icon {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, var(--blue-pale), #bfdbfe);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.75rem;
+}
+.service-row-text h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.service-row-text p { font-size: 0.925rem; color: var(--gray-600); line-height: 1.7; }
+.service-tag {
+  background: var(--blue-pale);
+  color: var(--blue-bright);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.375rem 0.875rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ─── INDUSTRIES PAGE ─── */
+.industries-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.industry-page-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.industry-page-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--blue-pale); }
+.industry-page-icon { font-size: 3rem; margin-bottom: 1.25rem; display: block; }
+.industry-page-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+.industry-page-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.7; }
+
+/* ─── PORTFOLIO PAGE ─── */
+.portfolio-hero {
+  background: var(--navy);
+  padding: 10rem 2rem 6rem;
+  position: relative;
+}
+.portfolio-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.15) 0%, transparent 60%);
+}
+.portfolio-filters {
+  display: flex; gap: 0.75rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--gray-200);
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--blue-bright);
+  border-color: var(--blue-bright);
+  color: var(--white);
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.portfolio-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.portfolio-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.portfolio-img {
+  height: 180px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(10,22,40,0.3));
+}
+.portfolio-tag {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+}
+.portfolio-body { padding: 1.5rem; }
+.portfolio-body h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.portfolio-body p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; }
+.portfolio-meta { display: flex; gap: 1rem; margin-top: 1rem; }
+.portfolio-meta span { font-size: 0.75rem; color: var(--gray-400); display: flex; align-items: center; gap: 0.25rem; }
+
+/* ─── CONTACT PAGE ─── */
+.contact-hero {
+  background: var(--navy);
+  padding: 10rem 2rem 6rem;
+  position: relative;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(26,79,160,0.35) 0%, transparent 60%);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+.contact-info { }
+.contact-info h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 1.5rem; }
+.contact-item {
+  display: flex; gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+.contact-icon {
+  width: 44px; height: 44px;
+  background: var(--blue-pale);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+.contact-item-text strong { display: block; font-size: 0.875rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+.contact-item-text span { font-size: 0.875rem; color: var(--gray-600); }
+.social-links { display: flex; gap: 0.75rem; margin-top: 2rem; }
+.social-btn {
+  width: 40px; height: 40px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.social-btn:hover { background: var(--blue-bright); border-color: var(--blue-bright); color: var(--white); transform: translateY(-2px); }
+.map-placeholder {
+  margin-top: 2rem;
+  height: 200px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  border: 1px solid var(--gray-100);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--gray-400);
+  font-size: 0.875rem;
+}
+.contact-form {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-100);
+}
+.contact-form h3 { font-size: 1.375rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.contact-form > p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--gray-100);
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--navy);
+  background: var(--gray-50);
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--blue-bright);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.08);
+}
+.form-group textarea { resize: vertical; min-height: 130px; }
+.form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.4); }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--blue-bright);
+}
+.form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+.form-success h3 { font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.form-success p { color: var(--gray-600); font-size: 0.9rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--dark);
+  padding: 4rem 2rem 2rem;
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand { }
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.footer-logo span { color: var(--gold); }
+.footer-desc { color: rgba(255,255,255,0.5); font-size: 0.875rem; line-height: 1.8; margin-bottom: 1.5rem; max-width: 300px; }
+.footer-social { display: flex; gap: 0.75rem; }
+.footer-social a {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: var(--transition);
+}
+.footer-social a:hover { background: var(--blue-bright); border-color: var(--blue-bright); color: var(--white); }
+.footer-col h4 { color: var(--white); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.25rem; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.625rem; }
+.footer-col a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.footer-col a:hover { color: var(--white); padding-left: 4px; }
+.newsletter-form { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.newsletter-form input {
+  flex: 1; padding: 0.65rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 0.85rem;
+  outline: none;
+  font-family: var(--font);
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
+.newsletter-form input:focus { border-color: var(--blue-bright); }
+.newsletter-form button {
+  padding: 0.65rem 1rem;
+  background: var(--blue-bright);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.newsletter-form button:hover { background: var(--blue-light); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.8rem; }
+.footer-bottom-links { display: flex; gap: 1.5rem; }
+.footer-bottom-links a { color: rgba(255,255,255,0.35); font-size: 0.8rem; text-decoration: none; transition: var(--transition); cursor: pointer; }
+.footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ─── PARTNERS ─── */
+.partners-bar {
+  background: var(--gray-50);
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+}
+.partners-inner { max-width: 1280px; margin: 0 auto; }
+.partners-label { text-align: center; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 2rem; }
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.partner-logo {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 10px;
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+}
+.partner-logo:hover { color: var(--navy); border-color: var(--gray-200); box-shadow: var(--shadow-sm); }
+
+/* ─── ANIMATE ON SCROLL ─── */
+.aos {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.aos.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.aos-delay-1 { transition-delay: 0.1s; }
+.aos-delay-2 { transition-delay: 0.2s; }
+.aos-delay-3 { transition-delay: 0.3s; }
+.aos-delay-4 { transition-delay: 0.4s; }
+
+/* ─── DARK MODE ─── */
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .timeline-item::before,
+[data-theme="dark"] .contact-form,
+[data-theme="dark"] .industry-page-card,
+[data-theme="dark"] .portfolio-card {
+  background: #111827;
+  border-color: #1e2a3a;
+}
+[data-theme="dark"] .service-card h3,
+[data-theme="dark"] .value-card h3,
+[data-theme="dark"] .timeline-item h3,
+[data-theme="dark"] .industry-page-card h3,
+[data-theme="dark"] .portfolio-body h3 {
+  color: #e2e8f0;
+}
+[data-theme="dark"] .section-light { background: #0d1117; }
+[data-theme="dark"] .intro-grid { background: #0d1117; }
+[data-theme="dark"] body { background: #0d1117; }
+[data-theme="dark"] .partner-logo { background: #111827; border-color: #1e2a3a; }
+[data-theme="dark"] .partners-bar { background: #0d1117; border-color: #1e2a3a; }
+[data-theme="dark"] .intro-badge { background: #111827; }
+[data-theme="dark"] .badge-text strong { color: #e2e8f0; }
+[data-theme="dark"] .contact-info h3 { color: #e2e8f0; }
+[data-theme="dark"] .form-group label { color: #e2e8f0; }
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+  background: #1e2a3a;
+  border-color: #2d3d52;
+  color: #e2e8f0;
+}
+[data-theme="dark"] .social-btn { background: #111827; border-color: #1e2a3a; }
+[data-theme="dark"] .service-row { background: #111827; border-color: #1e2a3a; }
+[data-theme="dark"] .service-row-text h3 { color: #e2e8f0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .industries-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .stat-card:last-child, .stat-card:nth-child(even) { border-bottom: none; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-actions .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .hero-content { grid-template-columns: 1fr; gap: 3rem; padding-top: 6rem; }
+  .hero-visual { display: none; }
+  .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .why-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .industries-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .mission-vision-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .timeline { padding-left: 1.5rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .industries-page-grid { grid-template-columns: 1fr 1fr; }
+  .service-row { grid-template-columns: 60px 1fr; }
+  .service-tag { display: none; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+  .partners-logos { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">A.J <span>Limited</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo-dot"></div>
+      A.J <span>Limited</span>
+    </a>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
+      <li><a onclick="showPage('industries')" id="nav-industries">Industries</a></li>
+      <li><a onclick="showPage('portfolio')" id="nav-portfolio">Portfolio</a></li>
+      <li><a onclick="showPage('contact')" class="nav-cta" id="nav-contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-btn" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
+      <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');toggleMenu()">Home</a>
+  <a onclick="showPage('about');toggleMenu()">About Us</a>
+  <a onclick="showPage('services');toggleMenu()">Services</a>
+  <a onclick="showPage('industries');toggleMenu()">Industries</a>
+  <a onclick="showPage('portfolio');toggleMenu()">Portfolio</a>
+  <a onclick="showPage('contact');toggleMenu()">Contact Us</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">Global Trade &amp; Business Solutions</div>
+        <h1 class="hero-title">A.J <span class="accent">Limited</span></h1>
+        <p class="hero-tagline">Connecting Businesses. Creating Opportunities.</p>
+        <p class="hero-desc">We bridge international markets through trusted trade relationships, expert sourcing, and strategic business consulting—delivering results that build lasting partnerships across borders.</p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" onclick="showPage('contact')">Get In Touch →</button>
+          <button class="btn btn-outline" onclick="showPage('services')">Our Services</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="h-card h-card-main">
+            <div class="globe-ring">
+              <div class="globe-dot"></div>
+              <div class="globe-dot"></div>
+              <div class="globe-dot"></div>
+              <div class="globe-inner">🌐</div>
+            </div>
+            <div class="h-card-main-title">Global Operations</div>
+            <div class="h-card-main-sub">Active in 40+ markets worldwide</div>
+          </div>
+          <div class="h-card h-card-stat h-card-stat-1">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Business Partners</div>
+          </div>
+          <div class="h-card h-card-stat h-card-stat-2">
+            <div class="stat-num">$50M+</div>
+            <div class="stat-label">Trade Volume</div>
+          </div>
+          <div class="h-card h-card-stat h-card-stat-3">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Countries Served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS BAR -->
+  <div class="partners-bar">
+    <div class="partners-inner">
+      <p class="partners-label">Trusted by industry leaders worldwide</p>
+      <div class="partners-logos">
+        <div class="partner-logo">GlobalTrade Co.</div>
+        <div class="partner-logo">Pacific Sourcing</div>
+        <div class="partner-logo">MedEast Partners</div>
+        <div class="partner-logo">EuroConnect AG</div>
+        <div class="partner-logo">AsiaLink Group</div>
+        <div class="partner-logo">Atlas Logistics</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPANY INTRO -->
+  <div class="intro-grid">
+    <div class="intro-visual aos">
+      <div class="intro-img-box">🏢</div>
+      <div class="intro-badge">
+        <div class="badge-icon">🏆</div>
+        <div class="badge-text">
+          <strong>Since 2018</strong>
+          <span>A trusted name in global trade</span>
+        </div>
+      </div>
+    </div>
+    <div class="intro-text aos aos-delay-2">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-title section-title-dark">A Global Business Partner You Can Rely On</h2>
+      <p class="section-subtitle">A.J Limited is a diversified international business company specializing in trade facilitation, product sourcing, and supply chain management across global markets. We operate with precision, integrity, and a deep understanding of local and international business environments.</p>
+      <ul class="check-list">
+        <li>End-to-end import and export management across 40+ countries</li>
+        <li>Vetted supplier and manufacturer network spanning Asia, Europe & the Americas</li>
+        <li>Regulatory compliance and logistics coordination expertise</li>
+        <li>Dedicated relationship managers for every client account</li>
+        <li>ISO-aligned quality assurance on all sourced products</li>
+      </ul>
+      <button class="btn btn-primary" style="margin-top:2rem" onclick="showPage('about')">Learn More About Us →</button>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow" style="color:var(--blue-light)">Why A.J Limited</div>
+        <h2 class="section-title section-title-white">Built on Trust. Driven by Results.</h2>
+        <p class="section-subtitle section-subtitle-white">Our core strengths set us apart in an increasingly competitive global marketplace.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card aos">
+          <div class="why-icon">🤝</div>
+          <h3>Trusted Relationships</h3>
+          <p>Over 500 verified business partners built through years of reliable, transparent transactions and mutual value creation.</p>
+        </div>
+        <div class="why-card aos aos-delay-1">
+          <div class="why-icon">🌐</div>
+          <h3>Global Reach</h3>
+          <p>Operations spanning 40+ countries with deep local market knowledge and established regulatory expertise in each region.</p>
+        </div>
+        <div class="why-card aos aos-delay-2">
+          <div class="why-icon">⚡</div>
+          <h3>Fast Execution</h3>
+          <p>Streamlined processes and dedicated teams ensure rapid turnaround—from sourcing requests to delivery confirmation.</p>
+        </div>
+        <div class="why-card aos aos-delay-3">
+          <div class="why-icon">🔍</div>
+          <h3>Quality Assurance</h3>
+          <p>Rigorous supplier vetting, product inspections, and compliance checks on every order, every time.</p>
+        </div>
+        <div class="why-card aos">
+          <div class="why-icon">💡</div>
+          <h3>Business Intelligence</h3>
+          <p>Market insights, price benchmarking, and competitor analysis to keep your business ahead of the curve.</p>
+        </div>
+        <div class="why-card aos aos-delay-1">
+          <div class="why-icon">🛡️</div>
+          <h3>Risk Management</h3>
+          <p>Comprehensive risk mitigation strategies for international trade, currency, and supply chain disruptions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card aos">
+        <span class="stat-number" data-target="500">0</span>
+        <p>Business Partners</p>
+      </div>
+      <div class="stat-card aos aos-delay-1">
+        <span class="stat-number">$50M+</span>
+        <p>Annual Trade Volume</p>
+      </div>
+      <div class="stat-card aos aos-delay-2">
+        <span class="stat-number" data-target="40">0</span>
+        <p>Countries Served</p>
+      </div>
+      <div class="stat-card aos aos-delay-3">
+        <span class="stat-number">98%</span>
+        <p>Client Retention Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SERVICES -->
+  <section class="section section-light">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title section-title-dark">Comprehensive Business Solutions</h2>
+        <p class="section-subtitle">From sourcing to distribution, we provide end-to-end solutions tailored to your business needs.</p>
+      </div>
+      <div class="services-grid" style="margin-top:3.5rem">
+        <div class="service-card aos">
+          <div class="service-icon">🚢</div>
+          <h3>Import &amp; Export</h3>
+          <p>Complete international trade facilitation including documentation, customs clearance, shipping coordination, and regulatory compliance.</p>
+          <div class="service-arrow">Explore Service →</div>
+        </div>
+        <div class="service-card aos aos-delay-1">
+          <div class="service-icon">🔎</div>
+          <h3>Product Sourcing</h3>
+          <p>Identifying and qualifying reliable manufacturers and suppliers worldwide, ensuring quality, pricing, and reliability meet your standards.</p>
+          <div class="service-arrow">Explore Service →</div>
+        </div>
+        <div class="service-card aos aos-delay-2">
+          <div class="service-icon">📦</div>
+          <h3>Distribution</h3>
+          <p>Supply chain and distribution management from origin to destination, with full visibility at every step of the process.</p>
+          <div class="service-arrow">Explore Service →</div>
+        </div>
+        <div class="service-card aos">
+          <div class="service-icon">📊</div>
+          <h3>Business Consulting</h3>
+          <p>Strategic guidance to help businesses optimize operations, enter new markets, and accelerate sustainable growth.</p>
+          <div class="service-arrow">Explore Service →</div>
+        </div>
+        <div class="service-card aos aos-delay-1">
+          <div class="service-icon">🤝</div>
+          <h3>International Partnerships</h3>
+          <p>Building long-term strategic business alliances that create mutual value and open new commercial opportunities.</p>
+          <div class="service-arrow">Explore Service →</div>
+        </div>
+        <div class="service-card aos aos-delay-2">
+          <div class="service-icon">🗂️</div>
+          <h3>Trade Finance</h3>
+          <p>Facilitating letters of credit, payment terms, and financial structuring to make international transactions seamless and secure.</p>
+          <div class="service-arrow">Explore Service →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow" style="color:var(--blue-light)">Sectors We Serve</div>
+        <h2 class="section-title section-title-white">Industries We Operate In</h2>
+      </div>
+      <div class="industries-grid" style="margin-top:3rem">
+        <div class="industry-card aos"><span class="industry-icon">🌾</span><p>Agriculture</p></div>
+        <div class="industry-card aos aos-delay-1"><span class="industry-icon">🛒</span><p>Consumer Goods</p></div>
+        <div class="industry-card aos aos-delay-2"><span class="industry-icon">🏭</span><p>Manufacturing</p></div>
+        <div class="industry-card aos aos-delay-3"><span class="industry-icon">📦</span><p>Packaging</p></div>
+        <div class="industry-card aos"><span class="industry-icon">🏪</span><p>Retail</p></div>
+        <div class="industry-card aos aos-delay-1"><span class="industry-icon">💻</span><p>Technology</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section-light">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow">Client Voices</div>
+        <h2 class="section-title section-title-dark">What Our Partners Say</h2>
+        <p class="section-subtitle">We measure success by the growth and satisfaction of our clients and partners worldwide.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card aos">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">A.J Limited transformed our sourcing operations entirely. Their supplier network and due diligence process saved us months of work and significantly reduced our procurement costs.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MR</div>
+            <div class="author-info">
+              <strong>Mohammed Rahman</strong>
+              <span>CEO, Dhaka Consumer Products Ltd.</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card aos aos-delay-1">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Their trade finance expertise made our expansion into Southeast Asia possible. The team handled every regulatory and logistical detail with remarkable professionalism.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SL</div>
+            <div class="author-info">
+              <strong>Sandra Liu</strong>
+              <span>Head of Procurement, Pacific Retail Group</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card aos aos-delay-2">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">Exceptional partners. Their distribution network and market insights gave us the competitive edge we needed to successfully launch in three new countries within a year.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div class="author-info">
+              <strong>Ahmed Karimi</strong>
+              <span>Director, MedEast Trading Co.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Ready to Expand Your Business Globally?</h2>
+      <p>Join hundreds of businesses that trust A.J Limited to navigate international markets with confidence.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-gold" onclick="showPage('contact')">Start a Conversation →</button>
+        <button class="btn btn-outline" onclick="showPage('services')">View All Services</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT PAGE
+══════════════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <div class="about-hero">
+    <div class="section-inner" style="position:relative;z-index:2">
+      <div class="section-eyebrow" style="color:var(--blue-light);justify-content:center">Our Story</div>
+      <h1 class="section-title section-title-white" style="font-size:clamp(2rem,4vw,3.25rem)">Built on Integrity.<br>Driven by Excellence.</h1>
+      <p class="section-subtitle section-subtitle-white" style="margin:1rem auto 0">A.J Limited has been connecting businesses across borders since 2018, delivering reliable trade solutions and cultivating partnerships that stand the test of time.</p>
+    </div>
+  </div>
+
+  <!-- MISSION & VISION -->
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="mission-vision-grid">
+        <div class="mv-card mission aos">
+          <div class="mv-label">Our Mission</div>
+          <h3 style="color:var(--white);font-size:1.25rem;font-family:var(--serif);margin-bottom:1rem">Reliable Connections. Quality Solutions.</h3>
+          <p>To create reliable business connections and deliver quality solutions worldwide—making international trade accessible, transparent, and mutually beneficial for every business we serve, regardless of size or geography.</p>
+        </div>
+        <div class="mv-card vision aos aos-delay-2">
+          <div class="mv-label">Our Vision</div>
+          <h3 style="color:var(--white);font-size:1.25rem;font-family:var(--serif);margin-bottom:1rem">A Trusted Global Business Partner</h3>
+          <p>To become the most trusted global business partner through innovation, integrity, and excellence—establishing A.J Limited as the first call for businesses seeking to grow beyond their borders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="section section-light">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow">What We Stand For</div>
+        <h2 class="section-title section-title-dark">Core Values</h2>
+        <p class="section-subtitle">The principles that guide every decision and every relationship we build.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card aos">
+          <div class="value-icon">🔒</div>
+          <h3>Integrity</h3>
+          <p>Transparent dealings and ethical business conduct in every transaction, every time.</p>
+        </div>
+        <div class="value-card aos aos-delay-1">
+          <div class="value-icon">⭐</div>
+          <h3>Excellence</h3>
+          <p>Relentless pursuit of quality in our services, processes, and partner relationships.</p>
+        </div>
+        <div class="value-card aos aos-delay-2">
+          <div class="value-icon">💡</div>
+          <h3>Innovation</h3>
+          <p>Continuously evolving our solutions to meet the demands of a changing global market.</p>
+        </div>
+        <div class="value-card aos aos-delay-3">
+          <div class="value-icon">🌱</div>
+          <h3>Partnership</h3>
+          <p>Building long-term relationships where our clients' success is our success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our Journey</div>
+      <h2 class="section-title section-title-dark">Company Timeline</h2>
+      <div class="timeline" style="max-width:700px;margin-top:3rem">
+        <div class="timeline-item aos">
+          <div class="timeline-year">2018</div>
+          <h3>A.J Limited Founded</h3>
+          <p>Established in Dhaka, Bangladesh with a vision to simplify cross-border trade for local businesses seeking global opportunities.</p>
+        </div>
+        <div class="timeline-item aos">
+          <div class="timeline-year">2019</div>
+          <h3>First International Partnerships</h3>
+          <p>Secured strategic alliances with suppliers and distributors across China, India, and the UAE, expanding our product sourcing capabilities.</p>
+        </div>
+        <div class="timeline-item aos">
+          <div class="timeline-year">2020</div>
+          <h3>Business Consulting Division Launched</h3>
+          <p>Expanded service offerings to include strategic business consulting, helping clients navigate market entry and operational optimization.</p>
+        </div>
+        <div class="timeline-item aos">
+          <div class="timeline-year">2022</div>
+          <h3>100+ Active Partners Milestone</h3>
+          <p>Reached a landmark 100 active business partners spanning 25 countries, validating our model of trust-driven international business.</p>
+        </div>
+        <div class="timeline-item aos">
+          <div class="timeline-year">2024</div>
+          <h3>40 Countries &amp; $50M Trade Volume</h3>
+          <p>Achieved operations across 40+ countries with cumulative trade volume exceeding $50 million—a testament to relentless execution and quality service.</p>
+        </div>
+        <div class="timeline-item aos">
+          <div class="timeline-year">2026</div>
+          <h3>Global Expansion Initiative</h3>
+          <p>Launching new regional offices and digital trade platforms to serve the next wave of international business growth across emerging markets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Partner With A.J Limited Today</h2>
+      <p>Discover how our expertise and global network can accelerate your international business ambitions.</p>
+      <button class="btn btn-gold" onclick="showPage('contact')">Get In Touch →</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     SERVICES PAGE
+══════════════════════════════════════════ -->
+<div class="page" id="page-services">
+
+  <div class="services-page-hero">
+    <div class="section-inner" style="position:relative;z-index:2">
+      <div class="section-eyebrow" style="color:var(--blue-light)">What We Offer</div>
+      <h1 class="section-title section-title-white" style="font-size:clamp(2rem,4vw,3.25rem)">End-to-End Business Solutions</h1>
+      <p class="section-subtitle section-subtitle-white" style="max-width:580px">Every service we offer is designed to remove friction from international trade and empower your business to operate globally with confidence.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="services-list">
+        <div class="service-row aos">
+          <div class="service-row-icon">🚢</div>
+          <div class="service-row-text">
+            <h3>Import &amp; Export</h3>
+            <p>We manage the full lifecycle of international trade—from initial product identification and supplier agreements to customs brokerage, freight forwarding, insurance, and final delivery. Our experienced team handles complex multi-country supply chains with precision and ensures full regulatory compliance in every jurisdiction.</p>
+          </div>
+          <span class="service-tag">Core Service</span>
+        </div>
+        <div class="service-row aos">
+          <div class="service-row-icon">🔎</div>
+          <div class="service-row-text">
+            <h3>Product Sourcing</h3>
+            <p>Leverage our verified network of thousands of manufacturers and suppliers across Asia, Europe, and beyond. We conduct factory audits, quality assessments, pricing negotiations, and sample procurement—delivering reliable supply partners that meet your exact specifications and values.</p>
+          </div>
+          <span class="service-tag">Core Service</span>
+        </div>
+        <div class="service-row aos">
+          <div class="service-row-icon">📦</div>
+          <div class="service-row-text">
+            <h3>Distribution &amp; Supply Chain</h3>
+            <p>From warehousing and inventory management to last-mile delivery coordination, we optimize every node of your supply chain. Our distribution management solutions reduce costs, improve lead times, and provide real-time visibility across your entire logistics operation.</p>
+          </div>
+          <span class="service-tag">Logistics</span>
+        </div>
+        <div class="service-row aos">
+          <div class="service-row-icon">📊</div>
+          <div class="service-row-text">
+            <h3>Business Consulting</h3>
+            <p>Our consulting team brings deep cross-industry expertise to help businesses define growth strategies, optimize operations, and enter new markets with confidence. We combine market research, financial modeling, and competitive intelligence to deliver actionable recommendations.</p>
+          </div>
+          <span class="service-tag">Advisory</span>
+        </div>
+        <div class="service-row aos">
+          <div class="service-row-icon">🤝</div>
+          <div class="service-row-text">
+            <h3>International Partnerships</h3>
+            <p>We identify, vet, and broker strategic partnerships between businesses across different markets. Whether you need a local distributor, a manufacturing partner, or a joint venture co-investor, our network and due diligence process ensures you connect with the right organizations.</p>
+          </div>
+          <span class="service-tag">Strategic</span>
+        </div>
+        <div class="service-row aos">
+          <div class="service-row-icon">💳</div>
+          <div class="service-row-text">
+            <h3>Trade Finance &amp; Documentation</h3>
+            <p>We assist clients with letters of credit, documentary collections, bank guarantees, and export financing arrangements. Our documentation specialists ensure all trade paperwork—certificates of origin, packing lists, bills of lading—is accurate, compliant, and processed efficiently.</p>
+          </div>
+          <span class="service-tag">Finance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Not Sure Which Service You Need?</h2>
+      <p>Our team will analyze your business situation and recommend the right solutions for your goals.</p>
+      <button class="btn btn-gold" onclick="showPage('contact')">Book a Free Consultation →</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     INDUSTRIES PAGE
+══════════════════════════════════════════ -->
+<div class="page" id="page-industries">
+
+  <section class="section section-dark" style="padding-top:10rem">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow" style="color:var(--blue-light)">Sectors We Serve</div>
+        <h1 class="section-title section-title-white" style="font-size:clamp(2rem,4vw,3.25rem)">Industries We Operate In</h1>
+        <p class="section-subtitle section-subtitle-white">Deep sector expertise allows us to deliver solutions that are relevant, compliant, and impactful across diverse industries.</p>
+      </div>
+      <div class="industries-grid" style="margin-top:3rem">
+        <div class="industry-card aos"><span class="industry-icon">🌾</span><p>Agriculture</p></div>
+        <div class="industry-card aos aos-delay-1"><span class="industry-icon">🛒</span><p>Consumer Goods</p></div>
+        <div class="industry-card aos aos-delay-2"><span class="industry-icon">🏭</span><p>Manufacturing</p></div>
+        <div class="industry-card aos aos-delay-3"><span class="industry-icon">📦</span><p>Packaging</p></div>
+        <div class="industry-card aos"><span class="industry-icon">🏪</span><p>Retail</p></div>
+        <div class="industry-card aos aos-delay-1"><span class="industry-icon">💻</span><p>Technology</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="section-inner">
+      <div class="text-center">
+        <div class="section-eyebrow">Detailed Overview</div>
+        <h2 class="section-title section-title-dark">Industry Expertise in Depth</h2>
+      </div>
+      <div class="industries-page-grid">
+        <div class="industry-page-card aos">
+          <span class="industry-page-icon">🌾</span>
+          <h3>Agriculture</h3>
+          <p>Sourcing and trading agricultural commodities including grains, spices, edible oils, and processed food products across major farming economies worldwide.</p>
+        </div>
+        <div class="industry-page-card aos aos-delay-1">
+          <span class="industry-page-icon">🛒</span>
+          <h3>Consumer Goods</h3>
+          <p>From personal care products to household items—we connect manufacturers with retail distributors across emerging and established markets globally.</p>
+        </div>
+        <div class="industry-page-card aos aos-delay-2">
+          <span class="industry-page-icon">🏭</span>
+          <h3>Manufacturing</h3>
+          <p>Supporting manufacturers with raw material procurement, component sourcing, and distribution partnerships that keep production lines running efficiently.</p>
+        </div>
+        <div class="industry-page-card aos">
+          <span class="industry-page-icon">📦</span>
+          <h3>Packaging</h3>
+          <p>Connecting brands with sustainable and innovative packaging solutions—sourcing from leading manufacturers in China, India, and Southeast Asia.</p>
+        </div>
+        <div class="industry-page-card aos aos-delay-1">
+          <span class="industry-page-icon">🏪</span>
+          <h3>Retail</h3>
+          <p>Helping retail businesses source high-quality private label products, manage seasonal inventory cycles, and build resilient multi-country supply chains.</p>
+        </div>
+        <div class="industry-page-card aos aos-delay-2">
+          <span class="industry-page-icon">💻</span>
+          <h3>Technology</h3>
+          <p>Facilitating import and distribution of electronics, peripherals, and tech hardware—managing compliance, IP protection, and warranty logistics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-banner-content">
+      <h2>Is Your Industry Listed?</h2>
+      <p>We work across many more sectors. Contact us to discuss your specific industry requirements.</p>
+      <button class="btn btn-gold" onclick="showPage('contact')">Discuss Your Industry →</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     PORTFOLIO PAGE
+══════════════════════════════════════════ -->
+<div class="page" id="page-portfolio">
+
+  <div class="portfolio-hero">
+    <div class="section-inner" style="position:relative;z-index:2">
+      <div class="section-eyebrow" style="color:var(--gold)">Our Track Record</div>
+      <h1 class="section-title section-title-white" style="font-size:clamp(2rem,4vw,3.25rem)">Projects &amp; Success Stories</h1>
+      <p class="section-subtitle section-subtitle-white">A curated look at the partnerships, trading projects, and business solutions we have delivered across the globe.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="portfolio-filters">
+        <button class="filter-btn active" onclick="filterPortfolio('all', this)">All Projects</button>
+        <button class="filter-btn" onclick="filterPortfolio('trade', this)">Trade</button>
+        <button class="filter-btn" onclick="filterPortfolio('sourcing', this)">Sourcing</button>
+        <button class="filter-btn" onclick="filterPortfolio('consulting', this)">Consulting</button>
+        <button class="filter-btn" onclick="filterPortfolio('partnership', this)">Partnerships</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-card" data-cat="trade">
+          <div class="portfolio-img">🚢<span class="portfolio-tag">Trade</span></div>
+          <div class="portfolio-body">
+            <h3>Agricultural Commodities — Bangladesh to UAE</h3>
+            <p>Facilitated a $2.4M rice and lentil export deal, managing full logistics, documentation, and payment terms over a 6-month contract.</p>
+            <div class="portfolio-meta">
+              <span>📅 2024</span>
+              <span>🌍 Bangladesh → UAE</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-cat="sourcing">
+          <div class="portfolio-img">🔎<span class="portfolio-tag">Sourcing</span></div>
+          <div class="portfolio-body">
+            <h3>Private Label Consumer Goods — China Sourcing</h3>
+            <p>Sourced and quality-controlled a 200-SKU private label product line for a European retail chain, reducing procurement costs by 32%.</p>
+            <div class="portfolio-meta">
+              <span>📅 2023</span>
+              <span>🌍 China → Europe</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-cat="consulting">
+          <div class="portfolio-img">📊<span class="portfolio-tag">Consulting</span></div>
+          <div class="portfolio-body">
+            <h3>Market Entry Strategy — Southeast Asia Expansion</h3>
+            <p>Developed and executed a full market entry strategy for a US-based consumer goods company expanding into Thailand, Vietnam, and Indonesia.</p>
+            <div class="portfolio-meta">
+              <span>📅 2024</span>
+              <span>🌍 USA → SE Asia</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-cat="partnership">
+          <div class="portfolio-img">🤝<span class="portfolio-tag">Partnership</span></div>
+          <div class="portfolio-body">
+            <h3>Strategic Distribution Partnership — South Asia</h3>
+            <p>Brokered a long-term distribution agreement between a European pharma packaging firm and three South Asian distributors.</p>
+            <div class="portfolio-meta">
+              <span>📅 2023</span>
+              <span>🌍 Europe → South Asia</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-cat="trade">
+          <div class="portfolio-img">⚙️<span class="portfolio-tag">Trade</span></div>
+          <div class="portfolio-body">
+            <h3>Industrial Equipment Import — Bangladesh</h3>
+            <p>Managed end-to-end importation of $1.8M worth of textile machinery from South Korea, including customs clearance and installation logistics.</p>
+            <div class="portfolio-meta">
+              <span>📅 2024</span>
+              <span>🌍 South Korea → BD</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" data-cat="sourcing">
+          <div class="portfolio-img">🏭<span class="portfolio-tag">Sourcing</span></div>
+          <div class="portfolio-body">
+            <h3>Sustainable Packaging Supplier — India</h3>
+            <p>Identified and onboarded three certified eco-packaging manufacturers in India for an international FMCG brand's sustainability initiative.</p>
+            <div class="portfolio-meta">
+              <span>📅 2023</span>
+              <span>🌍 India → Global</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">120+</span>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">40+</span>
+        <p>Countries Represented</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">$50M+</span>
+        <p>Total Trade Value</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">98%</span>
+        <p>On-time Delivery Rate</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONTACT PAGE
+══════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="contact-hero">
+    <div class="section-inner" style="position:relative;z-index:2">
+      <div class="section-eyebrow" style="color:var(--blue-light)">Get In Touch</div>
+      <h1 class="section-title section-title-white" style="font-size:clamp(2rem,4vw,3.25rem)">Let's Build Something Together</h1>
+      <p class="section-subtitle section-subtitle-white">Whether you're looking for a trade partner, business advice, or a reliable sourcing solution—we're ready to listen and respond.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Our Contact Information</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Head Office</strong>
+              <span>A.J Limited, Gulshan-2, Dhaka-1212, Bangladesh</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-item-text">
+              <strong>Email Us</strong>
+              <span>info@ajlimited.com.bd</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Call Us</strong>
+              <span>+880 1700-000000</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div class="contact-item-text">
+              <strong>Business Hours</strong>
+              <span>Sunday – Thursday: 9:00 AM – 6:00 PM BST</span>
+            </div>
+          </div>
+          <h3 style="margin-top:2rem">Follow Us</h3>
+          <div class="social-links">
+            <a class="social-btn" title="LinkedIn">in</a>
+            <a class="social-btn" title="Twitter/X">𝕏</a>
+            <a class="social-btn" title="Facebook">f</a>
+            <a class="social-btn" title="Instagram">IG</a>
+            <a class="social-btn" title="WhatsApp">WA</a>
+          </div>
+          <div class="map-placeholder">
+            <span style="font-size:2rem">🗺️</span>
+            <span>Gulshan-2, Dhaka, Bangladesh</span>
+            <span style="font-size:0.75rem">Click to open in Google Maps</span>
+          </div>
+        </div>
+
+        <div class="contact-form" id="contactFormWrap">
+          <h3>Send Us a Message</h3>
+          <p>Fill in the form below and we'll get back to you within 24 business hours.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="John Smith" id="fname">
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="john@company.com" id="femail">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+1 234 567 890" id="fphone">
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" placeholder="Your Company Ltd." id="fcompany">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Interested In</label>
+            <select id="fservice">
+              <option value="">Select a service...</option>
+              <option>Import &amp; Export</option>
+              <option>Product Sourcing</option>
+              <option>Distribution</option>
+              <option>Business Consulting</option>
+              <option>International Partnerships</option>
+              <option>Trade Finance</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message *</label>
+            <textarea placeholder="Tell us about your business needs, current challenges, or the opportunity you'd like to discuss..." id="fmessage"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Message →</button>
+          <div class="form-success" id="formSuccess">
+            <span class="success-icon">✅</span>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. Our team will review your inquiry and respond within 24 business hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER (shared across all pages)
+══════════════════════════════════════════ -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">A.J <span>Limited</span></div>
+        <p class="footer-desc">Connecting businesses across borders through trusted trade solutions, strategic sourcing, and international partnerships since 2018.</p>
+        <div class="footer-social">
+          <a href="#" title="LinkedIn">in</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">IG</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('about')">About Us</a></li>
+          <li><a onclick="showPage('services')">Services</a></li>
+          <li><a onclick="showPage('industries')">Industries</a></li>
+          <li><a onclick="showPage('portfolio')">Portfolio</a></li>
+          <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a onclick="showPage('services')">Import &amp; Export</a></li>
+          <li><a onclick="showPage('services')">Product Sourcing</a></li>
+          <li><a onclick="showPage('services')">Distribution</a></li>
+          <li><a onclick="showPage('services')">Business Consulting</a></li>
+          <li><a onclick="showPage('services')">Int'l Partnerships</a></li>
+          <li><a onclick="showPage('services')">Trade Finance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.7;margin-bottom:0.75rem">Stay updated with global trade insights and A.J Limited news.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address" id="newsletterEmail">
+          <button onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+        <p style="margin-top:1.25rem;color:rgba(255,255,255,0.5);font-size:0.8rem">📍 Gulshan-2, Dhaka-1212, Bangladesh<br>📧 info@ajlimited.com.bd<br>📞 +880 1700-000000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 A.J Limited. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── LOADER ───
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    initAOS();
+    animateCounters();
+  }, 2000);
+});
+
+// ─── NAVIGATION ───
+const pages = ['home','about','services','industries','portfolio','contact'];
+
+function showPage(name) {
+  pages.forEach(p => {
+    document.getElementById('page-'+p).classList.remove('active');
+    const navEl = document.getElementById('nav-'+p);
+    if (navEl) navEl.classList.remove('active');
+  });
+  document.getElementById('page-'+name).classList.add('active');
+  const navEl = document.getElementById('nav-'+name);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => { initAOS(); }, 100);
+  if (name === 'home') animateCounters();
+}
+
+// ─── STICKY NAV ───
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── MOBILE MENU ───
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// ─── DARK MODE ───
+let darkMode = false;
+function toggleTheme() {
+  darkMode = !darkMode;
+  document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  document.querySelector('.theme-btn').textContent = darkMode ? '☀️' : '🌙';
+}
+
+// ─── AOS (Animate On Scroll) ───
+function initAOS() {
+  const els = document.querySelectorAll('.aos:not(.visible)');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => observer.observe(el));
+}
+
+// Also trigger for elements already in view
+setTimeout(initAOS, 100);
+
+// ─── COUNTER ANIMATION ───
+function animateCounters() {
+  const counters = document.querySelectorAll('[data-target]');
+  counters.forEach(counter => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    let current = 0;
+    const duration = 1800;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        counter.textContent = target + '+';
+        clearInterval(timer);
+      } else {
+        counter.textContent = Math.floor(current) + '+';
+      }
+    }, 16);
+  });
+}
+
+// ─── PORTFOLIO FILTER ───
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-card').forEach(card => {
+    if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// ─── FORM SUBMIT ───
+function submitForm() {
+  const name = document.getElementById('fname').value;
+  const email = document.getElementById('femail').value;
+  const msg = document.getElementById('fmessage').value;
+  if (!name || !email || !msg) {
+    alert('Please fill in all required fields (Name, Email, and Message).');
+    return;
+  }
+  const form = document.getElementById('contactFormWrap');
+  const children = form.querySelectorAll('h3, p, .form-row, .form-group, .form-submit');
+  children.forEach(el => el.style.display = 'none');
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// ─── NEWSLETTER ───
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail').value;
+  if (!email) return;
+  document.getElementById('newsletterEmail').value = '';
+  alert('Thank you for subscribing! You\'ll receive our latest updates soon.');
+}
+
+// ─── INIT ───
+document.addEventListener('DOMContentLoaded', () => {
+  initAOS();
+});
+</script>
+
+</body>
+</html>
